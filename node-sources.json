@@ -930,9 +930,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/daisyui/-/daisyui-4.4.23.tgz#f2ce1b5eb6c95422e72e5c954a2c0af6bfb65ef0",
-        "sha512": "2054111a81a80247bc721c4f703a9024595d555779d492fb6f89910372eab0b7b15bfeb189c673cfd5f719774676762cbbc40fc59378bb3419e5fc113585ce4a",
-        "dest-filename": "daisyui-4.4.23.tgz",
+        "url": "https://registry.yarnpkg.com/daisyui/-/daisyui-4.7.2.tgz#d2359d9eb1cac2082302ca55b6b35eca437a011f",
+        "sha512": "f540acb35d999b293fdb6bbe25b915ac71f13b314ec98d7b1eea8fe4b7acc08e217256e3eaa6e3253a2f763db3472f1c087ebf9fa5a1d254cb8eb8869f21a1d2",
+        "dest-filename": "daisyui-4.7.2.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
