@@ -1,0 +1,19 @@
+{
+    "required-packages": [
+        "d3dx9",
+        "msls31",
+        "riched20",
+        "corefonts",
+        "d3dcompiler_43",
+        "d3dcompiler_47",
+        "dinput"
+    ],
+    "additional-packages": [
+        "dotnet-x64.exe",
+        "dotnet-x86.exe",
+        "7thHeaven-Setup.exe"
+    ],
+    "acceptable_steam_ids": [
+        39140
+    ]
+}
