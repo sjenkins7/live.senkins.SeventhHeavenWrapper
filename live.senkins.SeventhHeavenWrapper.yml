@@ -8,7 +8,7 @@ command: seventh-heaven-wrapper
 # rename-icon: senkins-test
 
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node18
+  - org.freedesktop.Sdk.Extension.node20
   - org.freedesktop.Sdk.Extension.rust-stable
 
 finish-args:
@@ -28,7 +28,7 @@ finish-args:
   - --env=GTK_USE_PORTAL=1
 
 build-options:
-  append-path: /usr/lib/sdk/node16/bin:/usr/lib/sdk/rust-stable/bin
+  append-path: /usr/lib/sdk/node20/bin:/usr/lib/sdk/rust-stable/bin
 
 modules:
   - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
@@ -53,8 +53,45 @@ modules:
       - -DENABLE_GAMEPAD=OFF
       - -DUSE_SOUP2=ON
       - -DENABLE_BUBBLEWRAP_SANDBOX=OFF
+      # TODO - check these
+      - -DUSE_WOFF2=OFF
+      - -DUSE_AVIF=OFF
     modules:
       - shared-modules/libsoup/libsoup-2.4.json
+      - shared-modules/libsecret/libsecret.json
+
+      - name: libwpe
+        sources:
+          - type: git
+            url: https://github.com/WebPlatformForEmbedded/libwpe.git
+            tag: 1.14.2
+            commit: 86663687517568b8de00b630381466bf50a8f700
+            x-checker-data:
+              type: git
+              tag-pattern: ^([\d.]+)$
+        buildsystem: meson
+
+      - name: WPEBackend-fdo
+        sources:
+          - type: git
+            url: https://github.com/Igalia/WPEBackend-fdo.git
+            tag: 1.14.2
+            commit: f121a8e93736b099906b7848797f89c9b689892b
+            x-checker-data:
+              type: git
+              tag-pattern: ^([\d.]+)$
+        buildsystem: meson
+
+      - name: enchant
+        sources: 
+          - type: git
+            url: https://github.com/AbiWord/enchant.git
+            tag: v2.6.7
+            commit: 8de88dad34841f578caff4e35adef03883609e9b
+            x-checker-data:
+              type: git
+              tag-pattern: ^v([\d.]+)$
+        buildsystem: autotools
 
       - name: unifdef
         no-autogen: true
