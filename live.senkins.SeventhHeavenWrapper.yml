@@ -12,20 +12,34 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
 
 finish-args:
-  - --socket=wayland  
-  - --socket=fallback-x11
-  #- --socket=x11
-  - --socket=pulseaudio
   - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --device=all
   - --share=network
-  - --filesystem=home
-  #- --filesystem=xdg-download
-  - --talk-name=org.freedesktop.Notifications
-  - --talk-name=org.kde.StatusNotifierWatcher
-  - --filesystem=xdg-run/keyring
-  - --device=dri
-  - --env=GTK_THEME=Breeze
-  - --env=GTK_USE_PORTAL=1
+  - --allow=multiarch
+  - --allow=devel
+  - --system-talk-name=org.freedesktop.UDisks2
+  - --system-talk-name=org.freedesktop.NetworkManager
+  # Steam Flatpak
+  - --filesystem=~/.var/app/com.valvesoftware.Steam:ro
+  # Steam Deck - TODO we may also need xdg-data/Steam
+  - --filesystem=~/.steam:ro
+  - --env=WINEDLLPATH=/app/dlls/lib32:/app/dlls/lib
+  - --env=WINEPREFIX=/var/data/wine
+  - --env=WINEDLLOVERRIDES=winemenubuilder.exe=d,dinput=n
+  - --env=GST_PLUGIN_SYSTEM_PATH=/app/lib32/gstreamer-1.0:/app/lib/gstreamer-1.0:/usr/lib/i386-linux-gnu/gstreamer-1.0:/usr/lib/x86_64-linux-gnu/gstreamer-1.0
+inherit-extensions:
+  - org.freedesktop.Platform.Compat.i386
+  - org.freedesktop.Platform.Compat.i386.Debug
+  - org.freedesktop.Platform.GL32
+  - org.freedesktop.Platform.VAAPI.Intel.i386
+  - org.freedesktop.Platform.ffmpeg-full
+  - org.freedesktop.Platform.ffmpeg_full.i386
+  - org.winehq.Wine.DLLs
+  - org.winehq.Wine.gecko
+  - org.winehq.Wine.mono
 
 build-options:
   append-path: /usr/lib/sdk/node20/bin:/usr/lib/sdk/rust-stable/bin
