@@ -391,9 +391,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.17.tgz#a0ec23af21b527c030967245fd99776aa7352bc6",
-        "sha512": "e1a9beb73be4a83492822c2bb04a465aa806a3d773f2a539337ce70a40b83e09296381dc099cc40c4be8ce5b461861c82a5f636d76d93d21f94d69f8b1625da3",
-        "dest-filename": "@headlessui-react-1.7.17.tgz",
+        "url": "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.18.tgz#30af4634d2215b2ca1aa29d07f33d02bea82d9d7",
+        "sha512": "e22e433abcf0378a9280db0be128bad5532451c59b7122ae79457bb058691f341c49285d94710d139f90067b4c491bc7b7c372a053b60061bcb22f65abec38cd",
+        "dest-filename": "@headlessui-react-1.7.18.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
@@ -569,6 +569,20 @@
         "url": "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.5.10.tgz#2abde4c6d5c797ab49cf47610830a301de4c1e0a",
         "sha512": "3def01b8f25025ddc57d19e6e87d2e94a206a0c1104be56ad3547a339682ac507f71c47fb214fed245cb8e8b860b58052e6f61a294c537e0cc3f4a5fc115b33f",
         "dest-filename": "@tailwindcss-typography-0.5.10.tgz",
+        "dest": "flatpak-node/yarn-mirror"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.1.1.tgz#0f239bd0323344ebf045b6579d98018123e49a0e",
+        "sha512": "f6d5bdc70116edec526bff1bc6edbd20f09c07973d5e5abec211138b12088186582ae518e193abd34d2ade82e92f86e43a4a2541b0785973343284068095ea0e",
+        "dest-filename": "@tanstack-react-virtual-3.1.1.tgz",
+        "dest": "flatpak-node/yarn-mirror"
+    },
+    {
+        "type": "file",
+        "url": "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.1.1.tgz#5d8d517fa60ec073a83a7a01e3041ad2d75657e8",
+        "sha512": "23995ead7f915b12ccfb3c37e60c30408a0bbed90e9b479cb9052512335ecbe19ae939d1eba58a2c19d21eb7b9f689ee8318690cb4f69e87d1633c5ffa2cc315",
+        "dest-filename": "@tanstack-virtual-core-3.1.1.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
