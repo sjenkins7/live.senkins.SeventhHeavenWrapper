@@ -10,7 +10,7 @@ pub struct SteamManager {
 impl SteamManager {
     pub fn new(home: PathBuf) -> SteamManager {
         SteamManager {
-            home: home
+            home
         }
     }
 
@@ -22,12 +22,12 @@ impl SteamManager {
             }
         }
         warn!("Couldn't detect an install of Steam");
-        return None;
+        None
     }
 
     fn known_steam_directories() -> Vec<PathBuf> {
         let home = home::home_dir().unwrap();
-        return [
+        [
             // Steam on Flatpak
             home.join(".var/app/com.valvesoftware.Steam/.steam"),
             // Steam Native

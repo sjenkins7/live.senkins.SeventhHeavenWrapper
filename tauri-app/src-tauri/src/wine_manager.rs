@@ -16,7 +16,7 @@ impl WineManager {
             prefix: Self::get_prefix()
         };
         manager.init();
-        return manager;
+        manager
     }
 
     pub fn install_package(&mut self, package: &String) -> Result<(), String>{
@@ -42,10 +42,10 @@ impl WineManager {
             }
         }
     
-        return home_dir;
+        home_dir
     }
 
-    fn init(&self) -> () {
+    fn init(&self) {
         Command::new("wineboot")
         .arg("--init")
         .env("WINEPREFIX", &self.prefix)
@@ -65,10 +65,10 @@ impl WineManager {
     }
 
     pub fn get_c_path(&self, source_dir: &str) -> PathBuf {
-        return self.prefix.join("drive_c").join(source_dir);
+        self.prefix.join("drive_c").join(source_dir)
     }
     fn get_drive_path(&self, drive_letter: &str) -> PathBuf {
-        return self.prefix.join("dosdevices").join(format!("{}:", drive_letter));
+        self.prefix.join("dosdevices").join(format!("{}:", drive_letter))
     }
     
 }

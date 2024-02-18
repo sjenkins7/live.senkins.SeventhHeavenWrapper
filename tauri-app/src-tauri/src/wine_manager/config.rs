@@ -12,7 +12,7 @@ pub(crate) struct WineConfig {
 
 impl WineConfig {
     fn config_filename(prefix: &PathBuf ) -> PathBuf {
-        return prefix.join("wrapper-config.yaml");
+        prefix.join("wrapper-config.yaml")
     }
 
     pub fn fetch(prefix: &PathBuf) -> WineConfig {
@@ -40,7 +40,7 @@ impl WineConfig {
             },
         };
     
-        return data;
+        data
     }
     fn new() -> WineConfig {
         WineConfig {
@@ -50,7 +50,7 @@ impl WineConfig {
     }
 
     pub fn is_installed(&self, package: &String) -> bool {
-        return self.installed_packages.contains(package);
+        self.installed_packages.contains(package)
     }
 
     pub fn package_installed(&mut self, package: &String) {

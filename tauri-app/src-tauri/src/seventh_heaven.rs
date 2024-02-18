@@ -14,7 +14,7 @@ struct StatusUpdate {
 }
 
 fn required_packages() -> Vec<String> {
-    return vec![
+    vec![
         "d3dx9".to_string(),
         "msls31".to_string(),
         "riched20".to_string(),
@@ -22,7 +22,7 @@ fn required_packages() -> Vec<String> {
         "d3dcompiler_43".to_string(),
         "d3dcompiler_47".to_string(),
         "dinput".to_string(),
-    ];
+    ]
 }
 
 fn prepare_cd_drive(wine_manager: &WineManager) -> io::Result<()> {
@@ -47,41 +47,41 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
 
     let mut wine_manager = WineManager::new();
 
-    let steam_home = with_status(&app_handle, format!("Detecting Steam..."), || -> Result<PathBuf,String> {
+    let steam_home = with_status(&app_handle, "Detecting Steam...".to_string(), || -> Result<PathBuf,String> {
         SteamManager::detect_steam_home().ok_or(String::from("Failed to find Steam - is it installed?"))
         // TODO - error handling
     }).unwrap();
 
-    let steam = SteamManager::new(steam_home);
+    let _steam = SteamManager::new(steam_home);
 
     for package in &required {
         with_status(&app_handle,format!("installing {package}..."), || -> Result<(), String> {
-            wine_manager.install_package(&package)
+            wine_manager.install_package(package)
             // TODO - error handling
         }).unwrap();
     }
-    with_status(&app_handle,format!("Configuring CD Drive..."), || -> io::Result<()> {
+    with_status(&app_handle,"Configuring CD Drive...".to_string(), || -> io::Result<()> {
         prepare_cd_drive(&wine_manager)
         // TODO - error handling
     }).unwrap();
 
-    with_status(&app_handle,format!("Setting up FF7..."), || -> io::Result<()> {
+    with_status(&app_handle,"Setting up FF7...".to_string(), || -> io::Result<()> {
         todo!("Fetch FF7 and install it");
         // TODO - error handling
     }).unwrap();
 
-    with_status(&app_handle,format!("Setting up Seventh Heaven..."), || -> io::Result<()> {
+    with_status(&app_handle,"Setting up Seventh Heaven...".to_string(), || -> io::Result<()> {
         todo!("Fetch Seventh Heaven and install it");
         // TODO - error handling
     }).unwrap();
 
-    with_status(&app_handle,format!("Setting up FFNX..."), || -> io::Result<()> {
+    with_status(&app_handle,"Setting up FFNX...".to_string(), || -> io::Result<()> {
         todo!("Fetch FFNX and install it?");
         // TODO - error handling
     }).unwrap();
 
 
-    with_status(&app_handle,format!("Patching FF7 for Seventh Heaven..."), || -> io::Result<()> {
+    with_status(&app_handle,"Patching FF7 for Seventh Heaven...".to_string(), || -> io::Result<()> {
         todo!("Apply FF7 Steam patch");
         // TODO - error handling
     }).unwrap();
@@ -105,7 +105,7 @@ fn with_status<T,R>(app_handle: &AppHandle, status_line: String, mut f: impl FnM
             running: true,
             success: false,
         },
-        &app_handle,
+        app_handle,
     );
 
     let result = match f() {
@@ -118,7 +118,7 @@ fn with_status<T,R>(app_handle: &AppHandle, status_line: String, mut f: impl FnM
                     running: false,
                     success: false,
                 },
-                &app_handle,
+                app_handle,
             );
             return Err(e)
         }
@@ -131,7 +131,7 @@ fn with_status<T,R>(app_handle: &AppHandle, status_line: String, mut f: impl FnM
             running: false,
             success: true,
         },
-        &app_handle,
+        app_handle,
     );
     Ok(result)
 }

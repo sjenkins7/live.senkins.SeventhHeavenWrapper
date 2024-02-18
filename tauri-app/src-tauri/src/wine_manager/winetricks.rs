@@ -25,7 +25,7 @@ pub(crate) fn install_package(prefix: &PathBuf, package: &String) -> Result<(), 
 
 fn installer_log(prefix: &PathBuf, filename: String) -> File {
     let log_prefix = prefix.join("installer_logs");
-    let log_name = log_prefix.join(&filename);
+    let log_name = log_prefix.join(filename);
     fs::create_dir_all(log_prefix).expect("failed to create log dir");
-   return File::create(log_name).expect("failed to open log");
+   File::create(log_name).expect("failed to open log")
 }
