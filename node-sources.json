@@ -1371,13 +1371,6 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/object-path/-/object-path-0.6.0.tgz#b69a7d110937934f336ca561fd9be1ad7b7e0cb7",
-        "sha512": "7f1af0b02162dffa7e2de2ce030a3fc3244c38367174606d525591cec129b1456b8ac65b11f676d5aaf12c67da59f727a9bf281cf3628486f85cf13c0903cde4",
-        "dest-filename": "object-path-0.6.0.tgz",
-        "dest": "flatpak-node/yarn-mirror"
-    },
-    {
-        "type": "file",
         "url": "https://registry.yarnpkg.com/path-key/-/path-key-3.1.1.tgz#581f6ade658cbba65a0d3380de7753295054f375",
         "sha512": "a2399e374a9dfb2d23b3312da18e3caf43deab97703049089423aee90e5fe3595f92cc17b8ab58ae18284e92e7c887079b6e1486ac7ee53aa6d889d2c0b844e9",
         "dest-filename": "path-key-3.1.1.tgz",
@@ -1612,13 +1605,6 @@
         "url": "https://registry.yarnpkg.com/signal-exit/-/signal-exit-4.1.0.tgz#952188c1cbd546070e2dd20d0f41c0ae0530cb04",
         "sha512": "6f3c99d5ef3cc3d3b588d25b2a73a5bd84eb58f0e5e3a3b56c6d03dd7227bfef6d90faf1acdf235144e21650e4926296827d4ce827c8035dd2b86a8e6bd2a8af",
         "dest-filename": "signal-exit-4.1.0.tgz",
-        "dest": "flatpak-node/yarn-mirror"
-    },
-    {
-        "type": "file",
-        "url": "https://registry.yarnpkg.com/sort-by/-/sort-by-1.2.0.tgz#ed92bbff9fd2284b41f6503e38496607b225fe6f",
-        "sha512": "691c96eb9af7c4c9dfe27c49465b828341ffc2826992c535750c51b576336aedf4b0d04e99fe47002a4377d3190e12a1ec02d0e4581239f30fc1912d52632a72",
-        "dest-filename": "sort-by-1.2.0.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
