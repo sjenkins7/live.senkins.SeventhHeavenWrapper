@@ -3466,14 +3466,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/serde_yaml/serde_yaml-0.9.31.crate",
-        "sha256": "adf8a49373e98a4c5f0ceb5d05aa7c648d75f63774981ed95b7c7443bbd50c6e",
-        "dest": "cargo/vendor/serde_yaml-0.9.31"
+        "url": "https://static.crates.io/crates/serde_yaml/serde_yaml-0.9.32.crate",
+        "sha256": "8fd075d994154d4a774f95b51fb96bdc2832b0ea48425c92546073816cda1f2f",
+        "dest": "cargo/vendor/serde_yaml-0.9.32"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"adf8a49373e98a4c5f0ceb5d05aa7c648d75f63774981ed95b7c7443bbd50c6e\", \"files\": {}}",
-        "dest": "cargo/vendor/serde_yaml-0.9.31",
+        "contents": "{\"package\": \"8fd075d994154d4a774f95b51fb96bdc2832b0ea48425c92546073816cda1f2f\", \"files\": {}}",
+        "dest": "cargo/vendor/serde_yaml-0.9.32",
         "dest-filename": ".cargo-checksum.json"
     },
     {
