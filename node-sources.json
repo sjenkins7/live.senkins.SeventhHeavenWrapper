@@ -790,9 +790,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.16.tgz#fad1411024d8670880bdece3970aa72e3572feb8",
-        "sha512": "eef777502eb12a9d072dfb9ae488d995c5ef1801b2edc0405d383697243ff16a4d85de92899f017bec66dc5c81498271e4629ca510b3061ed11f8ff476763eb9",
-        "dest-filename": "autoprefixer-10.4.16.tgz",
+        "url": "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.17.tgz#35cd5695cbbe82f536a50fa025d561b01fdec8be",
+        "sha512": "fdca553512d27e13ad7067e54f5dcfdbbf788154a098f81347e7abc3989f9cc2d96f45274a590ae2daae2e691ddc1840fa72e8e6d5fc0aed2ea54b062af29b9a",
+        "dest-filename": "autoprefixer-10.4.17.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
@@ -839,9 +839,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001571.tgz#4182e93d696ff42930f4af7eba515ddeb57917ac",
-        "sha512": "b58abfe8ca1785d7b30cb159b823bf4ca6e84f3b90ff14797057605cf7c3b4ceff91c8413b76f855682113f3808bf0d5eed4dd8662e3662641662d5f03f1a179",
-        "dest-filename": "caniuse-lite-1.0.30001571.tgz",
+        "url": "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001589.tgz#7ad6dba4c9bf6561aec8291976402339dc157dfb",
+        "sha512": "bcd4164ba908faaeac0651db87bd4821e0beb11c0ad8ddc40f249cfeea5d20684879edb1e73d34278735db8dbfe7f77a12910c74e9e4fe6fbab6e938fed72caa",
+        "dest-filename": "caniuse-lite-1.0.30001589.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
