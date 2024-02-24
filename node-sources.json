@@ -468,9 +468,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@remix-run/router/-/router-1.14.1.tgz#6d2dd03d52e604279c38911afc1079d58c50a755",
-        "sha512": "420e03310b1f3cd02cf3cadbdb191d934dcdddb8cae23817e5f476e1e1c24d1f6ae8fae165067850904fcc21c9908a5344dd542b1c760f38d99a70beecb8f43b",
-        "dest-filename": "@remix-run-router-1.14.1.tgz",
+        "url": "https://registry.yarnpkg.com/@remix-run/router/-/router-1.15.1.tgz#221fd31a65186b9bc027b74573485fb3226dff7f",
+        "sha512": "cdc53480cdf3fb78aa8fc517e39026598f35d25de85265cceee1f876de71b73bcc851b585612863a680e775f3bedd38f3dea5f0a352fe7bc3eb326a658861eef",
+        "dest-filename": "@remix-run-router-1.15.1.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
@@ -1511,16 +1511,16 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.21.1.tgz#58b459d2fe1841388c95bb068f85128c45e27349",
-        "sha512": "40236bb63b433f01c33be00edb530977bc8872be3551eb58b798f3681f58d5461a3d30a756e26ae92ef8f20d5d135d4e42508521083e46d000d5211923288178",
-        "dest-filename": "react-router-dom-6.21.1.tgz",
+        "url": "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.22.1.tgz#cfa109d4b6b0a4d00bac179bc0ad2a6469455282",
+        "sha512": "8b0332cb2adb2fbce4298ecc463395472f933274bf38fbac6855713363f5d71f5dcd2cc698bb1e6e40af622ac6ab40d607d2bd84eb291d862d0f3df7804e43bb",
+        "dest-filename": "react-router-dom-6.22.1.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/react-router/-/react-router-6.21.1.tgz#8db7ee8d7cfc36513c9a66b44e0897208c33be34",
-        "sha512": "5b4975dd894c4e6d58ae95483a98c200326a114a73d6f9be08ca38ed1b855f816d7a0c26e8a398b0be46dde884e768e72692afce6eae07fbd32933ca33c76690",
-        "dest-filename": "react-router-6.21.1.tgz",
+        "url": "https://registry.yarnpkg.com/react-router/-/react-router-6.22.1.tgz#a5ff849bfe709438f7e139421bb28138209662c7",
+        "sha512": "d29768446c0bb5e9a726a9f52b45c751b9ca897d12e17f0282f55598718e5a6a1f1128f7d66b07a3fd588aa70958aed6c5fab66b8bafbed4b4d4a010c962bf09",
+        "dest-filename": "react-router-6.22.1.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
