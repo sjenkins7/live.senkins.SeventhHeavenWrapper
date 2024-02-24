@@ -713,9 +713,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@types/react/-/react-18.2.45.tgz#253f4fac288e7e751ab3dc542000fb687422c15c",
-        "sha512": "4ed03108dae5ac1a7c1a8784a759e977983e77f39e8c91c5c52dce5a6acf04c15a550312374385c92a33262a39047c53b937ae834d005575408df0d27e4fa552",
-        "dest-filename": "@types-react-18.2.45.tgz",
+        "url": "https://registry.yarnpkg.com/@types/react/-/react-18.2.58.tgz#22082d12898d11806f4a1aefb5583116a047493d",
+        "sha512": "4da1af30d871bc6d90d0ad1a63188a7cd0d2e66e59b2820105bb5f528af1747e0d1925c8958bd9c4b248fbd0dddca8de077efcd1b7222f201bef294ef292e13f",
+        "dest-filename": "@types-react-18.2.58.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
