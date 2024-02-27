@@ -95,8 +95,8 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
             panic!("We can't read the game path at {:?}", game_path)
         }
         match copy_directory(game_path.as_path(), &wine_manager.get_c_path("FF7")) {
-            Ok(_) => todo!("We copied to {:?} successfully!",
-                &wine_manager.get_c_path("FF7")),
+            Ok(_) => Ok(println!("We copied to {:?} successfully!",
+                &wine_manager.get_c_path("FF7"))),
             Err(err) => panic!("Nooooo! {err}")
         }
         // TODO - error handling
