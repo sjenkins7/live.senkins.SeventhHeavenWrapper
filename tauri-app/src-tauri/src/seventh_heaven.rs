@@ -1,4 +1,10 @@
-use std::{fs::{self, File}, io::{self, Write}, path::PathBuf, thread, time::Duration};
+use std::{
+    fs::{self, File},
+    io::{self, Write},
+    path::{Path, PathBuf},
+    time::Duration,
+    thread
+};
 
 use log::{as_serde, info};
 use serde::Serialize;
@@ -40,6 +46,24 @@ fn prepare_cd_drive(wine_manager: &WineManager) -> io::Result<()> {
     wine_manager.load_cd("FF7DISC1", "x");
 }
 
+fn copy_directory(src: &Path, dest: &Path) -> io::Result<()> {
+    if src.is_dir() {
+        fs::create_dir_all(dest)?;
+
+        for entry in fs::read_dir(src)? {
+            let entry = entry?;
+            let entry_path = entry.path();
+            let new_dest = dest.join(entry.file_name());
+
+            copy_directory(&entry_path, &new_dest)?;
+        }
+    } else if src.is_file() {
+        fs::copy(src, dest)?;
+    }
+
+    Ok(())
+}
+
 #[tauri::command]
 pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
     info!("Starting install run");
@@ -67,12 +91,13 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
 
     with_status(&app_handle,"Setting up FF7...".to_string(), || -> io::Result<()> {
         let game_path = SteamManager::get_game_path(steam_home.as_path(), 39140);
-        if SteamManager::can_read_path(&game_path) {
-            println!("We can read the game path at {:?}", game_path);
-            todo!("Fetch FF7 and install it.")
-        } else {
-            println!("We can't read the game path at {:?}", game_path);
-            todo!("Instruct user to add flatpak permissions.")
+        if !SteamManager::can_read_path(&game_path) {
+            panic!("We can't read the game path at {:?}", game_path)
+        }
+        match copy_directory(game_path.as_path(), &wine_manager.get_c_path("FF7")) {
+            Ok(_) => todo!("We copied to {:?} successfully!",
+                &wine_manager.get_c_path("FF7")),
+            Err(err) => panic!("Nooooo! {err}")
         }
         // TODO - error handling
     }).unwrap();
