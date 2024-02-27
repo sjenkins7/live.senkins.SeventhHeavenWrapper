@@ -17,7 +17,7 @@ impl SteamManager {
     pub fn detect_steam_home() -> Option<PathBuf>{
         for d in Self::known_steam_directories() {
             debug!("Testing {} for libraryfolders.vdf", d.display());
-            if d.join("steam/steamapps/libraryfolders.vdf").exists() {
+            if d.join("steamapps/libraryfolders.vdf").exists() {
                 return Some(d);
             }
         }
@@ -31,7 +31,7 @@ impl SteamManager {
             // Steam on Flatpak
             home.join(".var/app/com.valvesoftware.Steam/.steam"),
             // Steam Native
-            home.join(".steam")
+            home.join(".local/share/Steam")
         ].to_vec()
     }
 }
