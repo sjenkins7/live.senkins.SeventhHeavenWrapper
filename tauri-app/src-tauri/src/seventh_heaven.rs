@@ -66,8 +66,7 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
     }).unwrap();
 
     with_status(&app_handle,"Setting up FF7...".to_string(), || -> io::Result<()> {
-        let library_path = &steam_home.as_path();
-        let game_path = SteamManager::get_game_path(library_path, 39140);
+        let game_path = SteamManager::get_game_path(steam_home.as_path(), 39140);
         if SteamManager::can_read_path(&game_path) {
             println!("We can read the game path at {:?}", game_path);
             todo!("Fetch FF7 and install it.")
