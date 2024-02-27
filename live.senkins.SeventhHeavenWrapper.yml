@@ -24,8 +24,7 @@ finish-args:
   - --system-talk-name=org.freedesktop.NetworkManager
   # Steam Flatpak
   - --filesystem=~/.var/app/com.valvesoftware.Steam:ro
-  # Steam Deck - TODO we may also need xdg-data/Steam
-  - --filesystem=~/.steam:ro
+  - --filesystem=xdg-data/Steam:ro
   - --env=WINEDLLPATH=/app/dlls/lib32:/app/dlls/lib
   - --env=WINEPREFIX=/var/data/wine
   - --env=WINEDLLOVERRIDES=winemenubuilder.exe=d,dinput=n
