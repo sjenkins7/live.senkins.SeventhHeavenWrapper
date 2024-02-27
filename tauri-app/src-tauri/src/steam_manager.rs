@@ -29,7 +29,7 @@ impl SteamManager {
         let home = home::home_dir().unwrap();
         [
             // Steam on Flatpak
-            home.join(".var/app/com.valvesoftware.Steam/.steam"),
+            home.join(".var/app/com.valvesoftware.Steam/.local/share/Steam"),
             // Steam Native
             home.join(".local/share/Steam")
         ].to_vec()
