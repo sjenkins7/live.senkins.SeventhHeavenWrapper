@@ -76,7 +76,7 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
         // TODO - error handling
     }).unwrap();
 
-    let _steam = SteamManager::new(steam_home.clone());
+    let steam = SteamManager::new(steam_home);
 
     for package in &required {
         with_status(&app_handle,format!("installing {package}..."), || -> Result<(), String> {
@@ -90,7 +90,7 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
     }).unwrap();
 
     with_status(&app_handle,"Setting up FF7...".to_string(), || -> io::Result<()> {
-        let game_path = SteamManager::get_game_path(steam_home.as_path(), 39140);
+        let game_path = steam.get_game_path(39140);
         if !SteamManager::can_read_path(&game_path) {
             panic!("We can't read the game path at {:?}", game_path)
         }

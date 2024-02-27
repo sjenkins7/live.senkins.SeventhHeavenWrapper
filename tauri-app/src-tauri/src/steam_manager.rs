@@ -9,15 +9,15 @@ pub struct SteamManager {
 }
 
 impl SteamManager {
-    pub fn get_game_path(path: &Path, app_id: u32) -> PathBuf {
-        if let Ok(steam_dir) = SteamDir::from_dir(path) {
+    pub fn get_game_path(&self, app_id: u32) -> PathBuf {
+        if let Ok(steam_dir) = SteamDir::from_dir(&self.home) {
             let (game, lib) = steam_dir
                 .find_app(app_id)
                 .expect("Couldn't locate FF7")
                 .unwrap();
             lib.resolve_app_dir(&game)
         } else {
-            panic!("APP_ID '{}' not found in Path: '{}'", app_id, path.display())
+            panic!("APP_ID '{}' not found in SteamLibrary: '{}'", app_id, &self.home.display())
         }
     }
     
