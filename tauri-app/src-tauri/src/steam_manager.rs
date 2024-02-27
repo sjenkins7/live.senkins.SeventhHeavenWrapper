@@ -1,4 +1,5 @@
-use std::path::PathBuf;
+use steamlocate::SteamDir;
+use std::{fs, path::{Path, PathBuf}};
 
 use log::{debug, warn};
 
@@ -8,6 +9,22 @@ pub struct SteamManager {
 }
 
 impl SteamManager {
+    pub fn get_game_path(path: &Path, app_id: u32) -> PathBuf {
+        if let Ok(steam_dir) = SteamDir::from_dir(path) {
+            let (game, lib) = steam_dir
+                .find_app(app_id)
+                .expect("Couldn't locate FF7")
+                .unwrap();
+            lib.resolve_app_dir(&game)
+        } else {
+            panic!("APP_ID '{}' not found in Path: '{}'", app_id, path.display())
+        }
+    }
+    
+    pub fn can_read_path(path: &PathBuf) -> bool {
+        fs::metadata(path).is_ok()
+    }
+
     pub fn new(home: PathBuf) -> SteamManager {
         SteamManager {
             home

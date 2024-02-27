@@ -52,7 +52,7 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
         // TODO - error handling
     }).unwrap();
 
-    let _steam = SteamManager::new(steam_home);
+    let _steam = SteamManager::new(steam_home.clone());
 
     for package in &required {
         with_status(&app_handle,format!("installing {package}..."), || -> Result<(), String> {
@@ -66,7 +66,15 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
     }).unwrap();
 
     with_status(&app_handle,"Setting up FF7...".to_string(), || -> io::Result<()> {
-        todo!("Fetch FF7 and install it");
+        let library_path = &steam_home.as_path();
+        let game_path = SteamManager::get_game_path(library_path, 39140);
+        if SteamManager::can_read_path(&game_path) {
+            println!("We can read the game path at {:?}", game_path);
+            todo!("Fetch FF7 and install it.")
+        } else {
+            println!("We can't read the game path at {:?}", game_path);
+            todo!("Instruct user to add flatpak permissions.")
+        }
         // TODO - error handling
     }).unwrap();
 
