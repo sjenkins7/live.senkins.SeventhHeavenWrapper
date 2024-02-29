@@ -1,6 +1,6 @@
 use std::{
     fs::{self, File},
-    io::{self, Write},
+    io::{self, Write, Error, ErrorKind},
     path::{Path, PathBuf},
     time::Duration,
     thread
@@ -90,16 +90,18 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
     }).unwrap();
 
     with_status(&app_handle,"Setting up FF7...".to_string(), || -> io::Result<()> {
-        let game_path = steam.get_game_path(39140);
+        let game_path = match steam.get_game_path(39140) {
+            Some(path) => path,
+            None => return Err(Error::new(ErrorKind::NotFound, "Couldn't locate APP_ID 39140!"))
+        };
         if !SteamManager::can_read_path(&game_path) {
-            panic!("We can't read the game path at {:?}", game_path)
+            return Err(Error::new(ErrorKind::NotFound,
+                format!("We can't read the game path at {:?}", game_path)));
         }
         match copy_directory(game_path.as_path(), &wine_manager.get_c_path("FF7")) {
-            Ok(_) => Ok(println!("We copied to {:?} successfully!",
-                &wine_manager.get_c_path("FF7"))),
-            Err(err) => panic!("Nooooo! {err}")
+            Ok(_) => Ok(info!("FF7 copied to {:?} successfully!", &wine_manager.get_c_path("FF7"))),
+            Err(err) => Err(err)
         }
-        // TODO - error handling
     }).unwrap();
 
     with_status(&app_handle,"Setting up Seventh Heaven...".to_string(), || -> io::Result<()> {
