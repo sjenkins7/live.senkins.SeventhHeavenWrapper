@@ -98,8 +98,9 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
             return Err(Error::new(ErrorKind::NotFound,
                 format!("We can't read the game path at {:?}", game_path)));
         }
-        match copy_directory(game_path.as_path(), &wine_manager.get_c_path("FF7")) {
-            Ok(_) => Ok(info!("FF7 copied to {:?} successfully!", &wine_manager.get_c_path("FF7"))),
+        let new_path = &wine_manager.get_c_path("FF7");
+        match copy_directory(game_path.as_path(), new_path) {
+            Ok(_) => Ok(info!("FF7 copied to {:?} successfully!", new_path)),
             Err(err) => Err(err)
         }
     }).unwrap();
