@@ -3090,7 +3090,7 @@ dependencies = [
 [[package]]
 name = "tauri-plugin-log"
 version = "0.0.0"
-source = "git+https://github.com/tauri-apps/plugins-workspace?branch=v1#58176114f98c977e3435aba3aa910b61115a394e"
+source = "git+https://github.com/tauri-apps/plugins-workspace?branch=v1#ea294c776a6a3a532bb7161905edb5fa95b8840c"
 dependencies = [
  "byte-unit",
  "fern",
