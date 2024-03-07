@@ -1,4 +1,10 @@
-use std::{fs::{self, File}, io::{self, Write}, path::PathBuf, thread, time::Duration};
+use std::{
+    fs::{self, File},
+    io::{self, Write, Error, ErrorKind},
+    path::{Path, PathBuf},
+    time::Duration,
+    thread
+};
 
 use log::{as_serde, info};
 use serde::Serialize;
@@ -40,6 +46,24 @@ fn prepare_cd_drive(wine_manager: &WineManager) -> io::Result<()> {
     wine_manager.load_cd("FF7DISC1", "x");
 }
 
+fn copy_directory(src: &Path, dest: &Path) -> io::Result<()> {
+    if src.is_dir() {
+        fs::create_dir_all(dest)?;
+
+        for entry in fs::read_dir(src)? {
+            let entry = entry?;
+            let entry_path = entry.path();
+            let new_dest = dest.join(entry.file_name());
+
+            copy_directory(&entry_path, &new_dest)?;
+        }
+    } else if src.is_file() {
+        fs::copy(src, dest)?;
+    }
+
+    Ok(())
+}
+
 #[tauri::command]
 pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
     info!("Starting install run");
@@ -52,7 +76,7 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
         // TODO - error handling
     }).unwrap();
 
-    let _steam = SteamManager::new(steam_home);
+    let steam = SteamManager::new(steam_home);
 
     for package in &required {
         with_status(&app_handle,format!("installing {package}..."), || -> Result<(), String> {
@@ -66,8 +90,19 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
     }).unwrap();
 
     with_status(&app_handle,"Setting up FF7...".to_string(), || -> io::Result<()> {
-        todo!("Fetch FF7 and install it");
-        // TODO - error handling
+        let game_path = match steam.get_game_path(39140) {
+            Some(path) => path,
+            None => return Err(Error::new(ErrorKind::NotFound, "Couldn't locate APP_ID 39140!"))
+        };
+        if !SteamManager::can_read_path(&game_path) {
+            return Err(Error::new(ErrorKind::NotFound,
+                format!("We can't read the game path at {:?}", game_path)));
+        }
+        let new_path = &wine_manager.get_c_path("FF7");
+        match copy_directory(game_path.as_path(), new_path) {
+            Ok(_) => Ok(info!("FF7 copied to {:?} successfully!", new_path)),
+            Err(err) => Err(err)
+        }
     }).unwrap();
 
     with_status(&app_handle,"Setting up Seventh Heaven...".to_string(), || -> io::Result<()> {
