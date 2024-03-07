@@ -2,8 +2,8 @@
     {
         "type": "git",
         "url": "https://github.com/tauri-apps/plugins-workspace",
-        "commit": "67df245eeea52aefa72950d0070b64b0d064c319",
-        "dest": "flatpak-cargo/git/plugins-workspace-67df245"
+        "commit": "30295ecc8e65ba63adf113aa5e1679735ce78f1c",
+        "dest": "flatpak-cargo/git/plugins-workspace-30295ec"
     },
     {
         "type": "archive",
@@ -4142,7 +4142,7 @@
     {
         "type": "shell",
         "commands": [
-            "cp -r --reflink=auto \"flatpak-cargo/git/plugins-workspace-67df245/plugins/log\" \"cargo/vendor/tauri-plugin-log\""
+            "cp -r --reflink=auto \"flatpak-cargo/git/plugins-workspace-30295ec/plugins/log\" \"cargo/vendor/tauri-plugin-log\""
         ]
     },
     {
