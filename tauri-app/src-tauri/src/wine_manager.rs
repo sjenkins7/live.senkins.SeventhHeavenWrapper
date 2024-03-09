@@ -1,4 +1,4 @@
-use std::{env, os, path::PathBuf, process::Command};
+use std::{env, os, path::PathBuf, process::Command, io};
 use log::{warn, info};
 
 mod winetricks;
@@ -53,26 +53,40 @@ impl WineManager {
         .spawn().expect("Failed to init prefix").wait().expect("Failed to init prefix");
     }
 
-    pub fn launch_exe(&self, absolute_path: &str, args: &Vec<&str>) -> std::io::Result<()> {
+    pub fn launch_exe(&self, absolute_path: &str, vars: &Vec<(&str, &str)>, args: &Vec<&str>) -> std::io::Result<()> {
         let display = env::var("DISPLAY").unwrap_or_else(|_| ":0".to_string());
         let mut command = Command::new("wine");
-        command.env("WINEPREFIX", &self.prefix).env("DISPLAY", display);
         command.arg(absolute_path);
+
+        for (var, value) in vars {
+            command.env(var, value);
+        }
         for arg in args {
             command.arg(arg);
         }
 
-        command.spawn()?.wait()?;
+        command
+            .env("WINEPREFIX", &self.prefix)
+            .env("DISPLAY", display)
+            .spawn()?
+            .wait()?;
+
         Ok(info!("Launched {absolute_path}"))
     }
 
-    pub(crate) fn load_cd(&self, source_dir: &str, drive_letter: &str) {
-        let source_path = self.get_c_path(source_dir);
+    pub(crate) fn load_cd(&self, source_dir: &str, drive_letter: &str) -> io::Result<()> {
         let drive_path = self.get_drive_path(drive_letter);
-        os::unix::fs::symlink(source_path, drive_path).unwrap();
+        if !drive_path.exists() {
+            os::unix::fs::symlink(format!("../drive_c/{}", source_dir), drive_path).unwrap();
+        }
 
-        
-        todo!("Registry Edit")
+        // Kill wine so it actually loads our CD
+        Command::new("wineserver")
+            .arg("-w")
+            .spawn()?
+            .wait()?;
+
+        Ok(info!("Loaded {} as drive {}:!", source_dir, drive_letter))
     }
 
     pub fn get_c_path(&self, source_dir: &str) -> PathBuf {

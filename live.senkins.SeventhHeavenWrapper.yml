@@ -148,13 +148,18 @@ modules:
   - name: 7th-Heaven
     buildsystem: simple
     build-commands:
-    - true
+      - install -D settings.xml /app/etc/settings.xml
+      - install -D FFNx.toml /app/etc/FFNx.toml
     sources:
-    - type: extra-data
-      filename: 7thHeaven-v3.4.0.70_Release.exe
-      url: https://github.com/tsunamods-codes/7th-Heaven/releases/download/canary/7thHeaven-v3.4.0.70_Release.exe
-      sha256: d9f6ab7e4b80279c944211f381ff38addd713547f3af1c386f5912879f34db70
-      size: 21962830
+      - type: extra-data
+        filename: 7thHeaven-v3.4.0.70_Release.exe
+        url: https://github.com/tsunamods-codes/7th-Heaven/releases/download/canary/7thHeaven-v3.4.0.70_Release.exe
+        sha256: d9f6ab7e4b80279c944211f381ff38addd713547f3af1c386f5912879f34db70
+        size: 21962830
+      - type: file
+        path: include/settings.xml
+      - type: file
+        path: include/FFNx.toml
 
   - name: SeventhHeavenWrapper
     sources:
