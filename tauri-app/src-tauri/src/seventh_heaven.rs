@@ -106,8 +106,11 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
     }).unwrap();
 
     with_status(&app_handle,"Setting up Seventh Heaven...".to_string(), || -> io::Result<()> {
-        todo!("Fetch Seventh Heaven and install it");
-        // TODO - error handling
+        let args = vec!["/VERYSILENT", "/SUPPRESSMSGBOXES", "/DIR=C:\\7th-Heaven"];
+        match wine_manager.launch_exe("/app/extra/7thHeaven-v3.4.0.70_Release.exe", &args) {
+            Ok(_) => Ok(info!("Launched 7th Heaven installer!")),
+            Err(e) => Err(Error::new(ErrorKind::NotFound, e))
+        }
     }).unwrap();
 
     with_status(&app_handle,"Setting up FFNX...".to_string(), || -> io::Result<()> {
