@@ -1,7 +1,5 @@
 use std::{env, os, path::PathBuf, process::Command};
-
-use log::warn;
-
+use log::{warn, info};
 
 mod winetricks;
 mod config;
@@ -53,6 +51,19 @@ impl WineManager {
         .env("WINEDLLOVERRIDES", "mscoree=d,mshtml=d")
         //FIXME - return failure and bring up error screen.
         .spawn().expect("Failed to init prefix").wait().expect("Failed to init prefix");
+    }
+
+    pub fn launch_exe(&self, absolute_path: &str, args: &Vec<&str>) -> std::io::Result<()> {
+        let display = env::var("DISPLAY").unwrap_or_else(|_| ":0".to_string());
+        let mut command = Command::new("wine");
+        command.env("WINEPREFIX", &self.prefix).env("DISPLAY", display);
+        command.arg(absolute_path);
+        for arg in args {
+            command.arg(arg);
+        }
+
+        command.spawn()?.wait()?;
+        Ok(info!("Launched {absolute_path}"))
     }
 
     pub(crate) fn load_cd(&self, source_dir: &str, drive_letter: &str) {
