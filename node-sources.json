@@ -594,79 +594,79 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-darwin-arm64/-/cli-darwin-arm64-1.5.10.tgz#63a93a9ed0d4b584cca63a7ed303d0da14eb7bd7",
-        "sha512": "f1da8768614a15410cbf709f13244fd046eadbc5f83b3ef86dd8b7f779c1655a9b64cf1237a25d07b91735bde8dd6d5330d4aed0cef57bac74e98bd748d5af5d",
-        "dest-filename": "@tauri-apps-cli-darwin-arm64-1.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-darwin-arm64/-/cli-darwin-arm64-1.5.11.tgz#a831f98f685148e46e8050dbdddbf4bcdda9ddc6",
+        "sha512": "d8d2d28250dbe557ef4db32d98e296c83fa868bfdef19fd9646a2f1ed505c9448545a6dd5dce9c64e95c0f506116f6241ea9be4ea19acf9aad3d1e546ea0ecf0",
+        "dest-filename": "@tauri-apps-cli-darwin-arm64-1.5.11.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-darwin-x64/-/cli-darwin-x64-1.5.10.tgz#984d79264d7c438e640c66b013cd3ff9cf65c502",
-        "sha512": "a9bffd1f61601910193e53e3e629e0c20a48f41d415160548c9a633fe5f34a48237d2415b3799b742173fa49c621fadba70feb05f74eb7d04cedb896a889a5dd",
-        "dest-filename": "@tauri-apps-cli-darwin-x64-1.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-darwin-x64/-/cli-darwin-x64-1.5.11.tgz#0afae17fe1e84b9699a6b9824cd83b60c6ebfa59",
+        "sha512": "fd1425947889447d9f24e0ae76d665694223a1f907ccfdf3660c62ef56549bb172f34b265394c37f0a703af074c12561d20fdc8838cc02b0924e8d0c46f2fe6a",
+        "dest-filename": "@tauri-apps-cli-darwin-x64-1.5.11.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-linux-arm-gnueabihf/-/cli-linux-arm-gnueabihf-1.5.10.tgz#f7fa5435b72242cc93ba26232e71e8e7e73cabde",
-        "sha512": "898c1f287190534133be3e4e3a120b0e2bfd552366de8a2e72db2f502e3280e2e1a552970ea43a9d0c09cd465ecb52a3a413de33bb2938e118658c4d52001d64",
-        "dest-filename": "@tauri-apps-cli-linux-arm-gnueabihf-1.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-linux-arm-gnueabihf/-/cli-linux-arm-gnueabihf-1.5.11.tgz#c46166d7f6c1022105a13d530b1d1336f628981f",
+        "sha512": "22506e04f2a6326f9ae4b2d410ae9adb5506afd65877accab8a2eae8818ce2d5707906bc49fda43f636ab3be1d306214acb98cb34beea9d511a7291083ecf835",
+        "dest-filename": "@tauri-apps-cli-linux-arm-gnueabihf-1.5.11.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-linux-arm64-gnu/-/cli-linux-arm64-gnu-1.5.10.tgz#0712c01f8c0e3f75c107d3922fbe7384b35b8d34",
-        "sha512": "933e2d23a46bf3046e495ac36294fa980cc70d6febc0fa2c6f6c066ad9e12913dbe6ff4b18f0197e5514523f800179f297a5e60fce916eeede9249bd0469b557",
-        "dest-filename": "@tauri-apps-cli-linux-arm64-gnu-1.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-linux-arm64-gnu/-/cli-linux-arm64-gnu-1.5.11.tgz#fd5c539a03371e0ab6cd00563dced1610ceb8943",
+        "sha512": "c3e9356cd1c253f19b997b21b408724f0aa8b138540e608414b5386648a7d6f9767ee02d42bcb644deed85f70915ea5b95418bfc9ef287743fd3e0428edb2929",
+        "dest-filename": "@tauri-apps-cli-linux-arm64-gnu-1.5.11.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-linux-arm64-musl/-/cli-linux-arm64-musl-1.5.10.tgz#428fad3c492254b0317b67a2762962e17b5cc7d4",
-        "sha512": "1ecc0569e4e9948558e984a3c7e6b05df2ea078cf0cd6dc3ffc5a99b11d8de4cb1684e159d7061293f3a627940faa5f4a99c60b18af42f4117c64f78d251ed29",
-        "dest-filename": "@tauri-apps-cli-linux-arm64-musl-1.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-linux-arm64-musl/-/cli-linux-arm64-musl-1.5.11.tgz#bf7f940c3aca981d7c240857a86568d5b6e8310f",
+        "sha512": "3cdebf765f8e7d843faab032e074407e4b09d80c964189f6200ff65b0a5a6bb483473dbe873c13424bda8eebf2d2c4392f65821bbca615845831ba42e8793d3e",
+        "dest-filename": "@tauri-apps-cli-linux-arm64-musl-1.5.11.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-linux-x64-gnu/-/cli-linux-x64-gnu-1.5.10.tgz#2b4d62505cc3bbf40eaa45d9bf9e3775eb098cd9",
-        "sha512": "b0e87bb256e8150c490811f940535ed48c37245d863d662cab64e543a4fc1a0161fdc6f5ddb2bf6b54c91bf80eaec440effa6423079a4ae7e3a4aa4f07302819",
-        "dest-filename": "@tauri-apps-cli-linux-x64-gnu-1.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-linux-x64-gnu/-/cli-linux-x64-gnu-1.5.11.tgz#17323105e3863a3f36d51771e642e489037ba59b",
+        "sha512": "3135572e2f3d363ec0a5cbe37b3c3dda6ed9a880ca4f9485299b553c283a4682d4053ce4a3f050a1760845699da33da98241c350780ed8e309f282b3cdd7576f",
+        "dest-filename": "@tauri-apps-cli-linux-x64-gnu-1.5.11.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-linux-x64-musl/-/cli-linux-x64-musl-1.5.10.tgz#42f70d9cca6a61d2d4f97598c2eebd221c9b2e58",
-        "sha512": "7db4d96b7434d6db482a0eacf6b8561917dd388db7cc83daea5a15cfa61a7c7033af758b2c45d2b86d9f23ffb4d53757f7176bea096db6ef23dc7e71139a0383",
-        "dest-filename": "@tauri-apps-cli-linux-x64-musl-1.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-linux-x64-musl/-/cli-linux-x64-musl-1.5.11.tgz#83e22026771ec8ab094922ab114a7385532aa16c",
+        "sha512": "930cc08ea169cfbaef4eced61992f2fdae674b9b75e502abdc4f451bde4c345d1ec53977776f58a005007b5327d26392ad327d67ebd8600708fd075cb0604ffb",
+        "dest-filename": "@tauri-apps-cli-linux-x64-musl-1.5.11.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-win32-arm64-msvc/-/cli-win32-arm64-msvc-1.5.10.tgz#490b32808b3387457c80831a93c1a96b854f8e3b",
-        "sha512": "1e7b5debaf91ae39f674f3c7a825616525e8b4d9f9bbb95f49f7ffd6b88815b478859cac07538f94c3848e1e7594162199caef86c78c7c67f01fa0fd8bb5982a",
-        "dest-filename": "@tauri-apps-cli-win32-arm64-msvc-1.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-win32-arm64-msvc/-/cli-win32-arm64-msvc-1.5.11.tgz#817874d230fdb09e7211013006a9a22f66ace573",
+        "sha512": "2fee4d67fac7ad252b3318e3e98a456025e9eb01e7abc73c49f0d304e5fc74ef31fb9dbcdffbdfb5be2fbee188b0b4b85305055c59cbb775d0af8e27f3813aed",
+        "dest-filename": "@tauri-apps-cli-win32-arm64-msvc-1.5.11.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-win32-ia32-msvc/-/cli-win32-ia32-msvc-1.5.10.tgz#dfb737a9e43e37c217a48912d000669a68ced3f0",
-        "sha512": "2a0777aa88cd847eea46c4b644a0f5aca814ce4e32feff92596f18affc4da3a148619cc90a16b05be5ab632041b51a1fb6b84bc26d3d2d29e4476d4a9466716c",
-        "dest-filename": "@tauri-apps-cli-win32-ia32-msvc-1.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-win32-ia32-msvc/-/cli-win32-ia32-msvc-1.5.11.tgz#dee1a00eb9e216415d9d6ab9386c35849613c560",
+        "sha512": "a15943f4855ec2b634959cd375bef590d5e48dd80ca85abea216faed8b096f845fee8f00f434e515db355cb09ede3a2a2cc9b833e82f04a0fb62718877143dbc",
+        "dest-filename": "@tauri-apps-cli-win32-ia32-msvc-1.5.11.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-win32-x64-msvc/-/cli-win32-x64-msvc-1.5.10.tgz#5dc4950cbd03f8bf730e32af127bcbf7b7c82ac2",
-        "sha512": "a6fba8b76e1978ba90603deb4074b31c9bd40d7fe4135f05f7cca5da63bd207ac74326ac76a94b86bffa92498e588bc50eac90361a455c3cc634f9bbc916c1d6",
-        "dest-filename": "@tauri-apps-cli-win32-x64-msvc-1.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tauri-apps/cli-win32-x64-msvc/-/cli-win32-x64-msvc-1.5.11.tgz#c003ce00b36d056a8b08e0ecf4633c2bba00c497",
+        "sha512": "d427b172a5050a2b39ca950830e2a5971501ae76b4f4c71b7ed584360bd55cc7c0f923fec8f0cf0156fc7c8bd471d4c8c11ff21c9c1c22e7264c1e1a9f0c38be",
+        "dest-filename": "@tauri-apps-cli-win32-x64-msvc-1.5.11.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tauri-apps/cli/-/cli-1.5.10.tgz#f7040645cc9d659fc9ff8a5fe568c1b4226935d6",
-        "sha512": "f3ee8d260a925eab05004b941110c3456acb876e13313e1a8ac9f5aa9003bca557e0a94100a135eca4d71c8e785d0151f2a2db91414dce9ad4e0cf4f57c8a087",
-        "dest-filename": "@tauri-apps-cli-1.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tauri-apps/cli/-/cli-1.5.11.tgz#02beb559b3b55836c90a1ba9121b3fc50e3760cd",
+        "sha512": "078ef90fba6166bab9b19de40c0047e20da61285081ed9c83beaf86460007ec8cc6d90b05f147f8e53064c42fe54edd8ce3a45ee041edfc233078bcb05b569a7",
+        "dest-filename": "@tauri-apps-cli-1.5.11.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
