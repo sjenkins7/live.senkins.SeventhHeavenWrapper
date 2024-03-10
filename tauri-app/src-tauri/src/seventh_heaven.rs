@@ -5,7 +5,7 @@ use std::{
     time::Duration,
     thread
 };
-
+use zip_extensions;
 use log::{as_serde, info};
 use serde::Serialize;
 use tauri::{AppHandle, Manager};
@@ -42,7 +42,6 @@ fn prepare_cd_drive(wine_manager: &WineManager) -> io::Result<()> {
 fn configure_7th() -> io::Result<()> {
     fs::create_dir_all("/var/data/wine/drive_c/FF7/mods")?;
     fs::create_dir_all("/var/data/wine/drive_c/7th-Heaven/7thWorkshop")?;
-    fs::copy("/app/etc/FFNx.toml", "/var/data/wine/drive_c/FF7/FFNx.toml")?;
     fs::copy("/app/etc/settings.xml", "/var/data/wine/drive_c/7th-Heaven/7thWorkshop/settings.xml")?;
     fs::copy("/var/data/wine/drive_c/7th-Heaven/Resources/FF7_1.02_Eng_Patch/ff7.exe", "/var/data/wine/drive_c/FF7/ff7.exe")?;
     // TODO: Proper error handling here
@@ -120,6 +119,17 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
         }
     }).unwrap();
 
+    with_status(&app_handle,"Setting up FFNX...".to_string(), || -> io::Result<()> {
+        let zip_file = PathBuf::from("/app/extra/FFNx-FF7_1998-v1.18.1.33.zip");
+        let target_dir = PathBuf::from("/var/data/wine/drive_c/FF7");
+        match zip_extensions::zip_extract(&zip_file, &target_dir) {
+            Ok(_) => fs::copy("/app/etc/FFNx.toml", "/var/data/wine/drive_c/FF7/FFNx.toml")
+                    .map(|_| ())
+                    .map_err(Into::into),
+            Err(err) => Err(err.into())
+        }
+    }).unwrap();
+
     with_status(&app_handle,"Launching 7th Heaven...".to_string(), || -> io::Result<()> {
         let vars = vec![("WINEDLLOVERRIDES", "dinput=n,b")];
         match wine_manager.launch_exe("/var/data/wine/drive_c/7th-Heaven/7th Heaven.exe", &vars, &vec![]) {
@@ -127,12 +137,6 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
             Err(e) => Err(Error::new(ErrorKind::NotFound, e))
         }
     }).unwrap();
-
-    with_status(&app_handle,"Setting up FFNX...".to_string(), || -> io::Result<()> {
-        todo!("Fetch FFNX and install it?");
-        // TODO - error handling
-    }).unwrap();
-
 
     with_status(&app_handle,"Patching FF7 for Seventh Heaven...".to_string(), || -> io::Result<()> {
         todo!("Apply FF7 Steam patch");
