@@ -110,7 +110,7 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
 
     with_status(&app_handle,"Setting up 7th Heaven...".to_string(), || -> io::Result<()> {
         let args = vec!["/VERYSILENT", "/SUPPRESSMSGBOXES", "/DIR=C:\\7th-Heaven"];
-        match wine_manager.launch_exe("/app/extra/7thHeaven-v3.4.0.70_Release.exe", &vec![], &args) {
+        match wine_manager.launch_exe("/app/extra/7thHeaven.exe", &vec![], &args) {
             Ok(_) => {
                 let _ = configure_7th();
                 Ok(info!("Installed 7th Heaven!"))
@@ -120,7 +120,7 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
     }).unwrap();
 
     with_status(&app_handle,"Setting up FFNX...".to_string(), || -> io::Result<()> {
-        let zip_file = PathBuf::from("/app/extra/FFNx-FF7_1998-v1.18.1.33.zip");
+        let zip_file = PathBuf::from("/app/extra/FFNx.zip");
         let target_dir = PathBuf::from("/var/data/wine/drive_c/FF7");
         match zip_extensions::zip_extract(&zip_file, &target_dir) {
             Ok(_) => fs::copy("/app/etc/FFNx.toml", "/var/data/wine/drive_c/FF7/FFNx.toml")

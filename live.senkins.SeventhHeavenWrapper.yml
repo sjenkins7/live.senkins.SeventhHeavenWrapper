@@ -152,12 +152,12 @@ modules:
       - install -D FFNx.toml /app/etc/FFNx.toml
     sources:
       - type: extra-data
-        filename: 7thHeaven-v3.4.0.70_Release.exe
+        filename: 7thHeaven.exe
         url: https://github.com/tsunamods-codes/7th-Heaven/releases/download/canary/7thHeaven-v3.4.0.70_Release.exe
         sha256: d9f6ab7e4b80279c944211f381ff38addd713547f3af1c386f5912879f34db70
         size: 21962830
       - type: extra-data
-        filename: FFNx-FF7_1998-v1.18.1.33.zip
+        filename: FFNx.zip
         url: https://github.com/julianxhokaxhiu/FFNx/releases/download/canary/FFNx-FF7_1998-v1.18.1.33.zip
         sha256: 388b98dd691fe3af12e094380e1365ee1013792e5bad05594cc8a5cce4a31c89
         size: 44859182
