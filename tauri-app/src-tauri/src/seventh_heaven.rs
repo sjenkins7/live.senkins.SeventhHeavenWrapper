@@ -5,7 +5,6 @@ use std::{
     time::Duration,
     thread
 };
-use zip_extensions;
 use log::{as_serde, info};
 use serde::Serialize;
 use tauri::{AppHandle, Manager};
@@ -28,25 +27,28 @@ fn required_packages() -> Vec<String> {
 fn prepare_cd_drive(wine_manager: &WineManager) -> io::Result<()> {
     let path = wine_manager.get_c_path("FF7DISC1");
 
-    fs::create_dir_all(&path)
+    match fs::create_dir_all(&path)
         .and_then(|_| File::create(path.join(".windows-label")))
         .and_then(|mut label_path| label_path.write_all( b"FF7DISC1")
             .and_then(|_| label_path.flush()))
         .and_then(|_| File::create(path.join(".windows-serial")))
         .and_then(|mut label_path| label_path.write_all( b"44000000")
-            .and_then(|_| label_path.flush()))?;
-    
-    wine_manager.load_cd("FF7DISC1", "x")
+            .and_then(|_| label_path.flush()))
+    {
+        Ok(_) => wine_manager.load_cd("FF7DISC1", "x"),
+        Err(e) => Err(e)
+    }
 }
 
 fn configure_7th() -> io::Result<()> {
-    fs::create_dir_all("/var/data/wine/drive_c/FF7/mods")?;
-    fs::create_dir_all("/var/data/wine/drive_c/7th-Heaven/7thWorkshop")?;
-    fs::copy("/app/etc/settings.xml", "/var/data/wine/drive_c/7th-Heaven/7thWorkshop/settings.xml")?;
-    fs::copy("/var/data/wine/drive_c/7th-Heaven/Resources/FF7_1.02_Eng_Patch/ff7.exe", "/var/data/wine/drive_c/FF7/ff7.exe")?;
-    // TODO: Proper error handling here
-
-    Ok(info!("Configured 7th Heaven for first launch!"))
+    match fs::create_dir_all("/var/data/wine/drive_c/FF7/mods")
+        .and_then(|_| fs::create_dir_all("/var/data/wine/drive_c/7th-Heaven/7thWorkshop"))
+        .and_then(|_| fs::copy("/app/etc/settings.xml", "/var/data/wine/drive_c/7th-Heaven/7thWorkshop/settings.xml"))
+        .and_then(|_| fs::copy("/var/data/wine/drive_c/7th-Heaven/Resources/FF7_1.02_Eng_Patch/ff7.exe", "/var/data/wine/drive_c/FF7/ff7.exe"))
+    {
+        Ok(_) => Ok(info!("Configured 7th Heaven for first launch!")),
+        Err(e) => Err(e)
+    }
 }
 
 fn copy_directory(src: &Path, dest: &Path) -> io::Result<()> {
