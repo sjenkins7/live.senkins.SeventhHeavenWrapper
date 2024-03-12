@@ -27,28 +27,28 @@ fn required_packages() -> Vec<String> {
 fn prepare_cd_drive(wine_manager: &WineManager) -> io::Result<()> {
     let path = wine_manager.get_c_path("FF7DISC1");
 
-    match fs::create_dir_all(&path)
+    fs::create_dir_all(&path)
         .and_then(|_| File::create(path.join(".windows-label")))
         .and_then(|mut label_path| label_path.write_all( b"FF7DISC1")
             .and_then(|_| label_path.flush()))
         .and_then(|_| File::create(path.join(".windows-serial")))
         .and_then(|mut label_path| label_path.write_all( b"44000000")
-            .and_then(|_| label_path.flush()))
-    {
-        Ok(_) => wine_manager.load_cd("FF7DISC1", "x"),
-        Err(e) => Err(e)
-    }
+            .and_then(|_| label_path.flush()))?;
+
+    wine_manager.load_cd("FF7DISC1", "x")
 }
 
 fn configure_7th() -> io::Result<()> {
-    match fs::create_dir_all("/var/data/wine/drive_c/FF7/mods")
-        .and_then(|_| fs::create_dir_all("/var/data/wine/drive_c/7th-Heaven/7thWorkshop"))
+    fs::create_dir_all("/var/data/wine/drive_c/FF7/mods")
+        .and_then(|_| fs::create_dir_all("/var/data/wine/drive_c/FF7/direct"))
+        .and_then(|_| fs::create_dir_all("/var/data/wine/drive_c/FF7/mesh"))
+        .and_then(|_| fs::create_dir_all("/var/data/wine/drive_c/FF7/widescreen"))
+        .and_then(|_| fs::create_dir_all("/var/data/wine/drive_c/7th-Heaven/7thWorkshop/profiles"))
         .and_then(|_| fs::copy("/app/etc/settings.xml", "/var/data/wine/drive_c/7th-Heaven/7thWorkshop/settings.xml"))
-        .and_then(|_| fs::copy("/var/data/wine/drive_c/7th-Heaven/Resources/FF7_1.02_Eng_Patch/ff7.exe", "/var/data/wine/drive_c/FF7/ff7.exe"))
-    {
-        Ok(_) => Ok(info!("Configured 7th Heaven for first launch!")),
-        Err(e) => Err(e)
-    }
+        .and_then(|_| fs::copy("/app/etc/Default.xml", "/var/data/wine/drive_c/7th-Heaven/7thWorkshop/profiles/Default.xml"))
+        .and_then(|_| fs::copy("/var/data/wine/drive_c/7th-Heaven/Resources/FF7_1.02_Eng_Patch/ff7.exe", "/var/data/wine/drive_c/FF7/ff7.exe"))?;
+
+    Ok(info!("Configured 7th Heaven for first launch!"))
 }
 
 fn copy_directory(src: &Path, dest: &Path) -> io::Result<()> {

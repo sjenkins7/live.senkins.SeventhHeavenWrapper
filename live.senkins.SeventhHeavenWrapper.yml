@@ -150,6 +150,7 @@ modules:
     build-commands:
       - install -D settings.xml /app/etc/settings.xml
       - install -D FFNx.toml /app/etc/FFNx.toml
+      - install -D Default.xml /app/etc/Default.xml
     sources:
       - type: extra-data
         filename: 7thHeaven.exe
@@ -165,6 +166,8 @@ modules:
         path: include/settings.xml
       - type: file
         path: include/FFNx.toml
+      - type: file
+        path: include/Default.xml
 
   - name: SeventhHeavenWrapper
     sources:
