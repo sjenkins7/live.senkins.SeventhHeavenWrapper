@@ -5,7 +5,6 @@ use std::{
     time::Duration,
     thread
 };
-
 use log::{as_serde, info};
 use serde::Serialize;
 use tauri::{AppHandle, Manager};
@@ -21,29 +20,35 @@ struct StatusUpdate {
 
 fn required_packages() -> Vec<String> {
     vec![
-        "d3dx9".to_string(),
-        "msls31".to_string(),
-        "riched20".to_string(),
-        "corefonts".to_string(),
-        "d3dcompiler_43".to_string(),
-        "d3dcompiler_47".to_string(),
-        "dinput".to_string(),
+        "corefonts".to_string()
     ]
 }
 
 fn prepare_cd_drive(wine_manager: &WineManager) -> io::Result<()> {
     let path = wine_manager.get_c_path("FF7DISC1");
 
-    
-    return fs::create_dir_all(&path)
+    fs::create_dir_all(&path)
         .and_then(|_| File::create(path.join(".windows-label")))
         .and_then(|mut label_path| label_path.write_all( b"FF7DISC1")
             .and_then(|_| label_path.flush()))
         .and_then(|_| File::create(path.join(".windows-serial")))
         .and_then(|mut label_path| label_path.write_all( b"44000000")
-            .and_then(|_| label_path.flush()));
-    
-    wine_manager.load_cd("FF7DISC1", "x");
+            .and_then(|_| label_path.flush()))?;
+
+    wine_manager.load_cd("FF7DISC1", "x")
+}
+
+fn configure_7th() -> io::Result<()> {
+    fs::create_dir_all("/var/data/wine/drive_c/FF7/mods")
+        .and_then(|_| fs::create_dir_all("/var/data/wine/drive_c/FF7/direct"))
+        .and_then(|_| fs::create_dir_all("/var/data/wine/drive_c/FF7/mesh"))
+        .and_then(|_| fs::create_dir_all("/var/data/wine/drive_c/FF7/widescreen"))
+        .and_then(|_| fs::create_dir_all("/var/data/wine/drive_c/7th-Heaven/7thWorkshop/profiles"))
+        .and_then(|_| fs::copy("/app/etc/settings.xml", "/var/data/wine/drive_c/7th-Heaven/7thWorkshop/settings.xml"))
+        .and_then(|_| fs::copy("/app/etc/Default.xml", "/var/data/wine/drive_c/7th-Heaven/7thWorkshop/profiles/Default.xml"))
+        .and_then(|_| fs::copy("/var/data/wine/drive_c/7th-Heaven/Resources/FF7_1.02_Eng_Patch/ff7.exe", "/var/data/wine/drive_c/FF7/ff7.exe"))?;
+
+    Ok(info!("Configured 7th Heaven for first launch!"))
 }
 
 fn copy_directory(src: &Path, dest: &Path) -> io::Result<()> {
@@ -79,7 +84,7 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
     let steam = SteamManager::new(steam_home);
 
     for package in &required {
-        with_status(&app_handle,format!("installing {package}..."), || -> Result<(), String> {
+        with_status(&app_handle,format!("Installing {package}..."), || -> Result<(), String> {
             wine_manager.install_package(package)
             // TODO - error handling
         }).unwrap();
@@ -105,19 +110,35 @@ pub(crate) async fn install_run(app_handle: AppHandle) -> Result<(), ()> {
         }
     }).unwrap();
 
-    with_status(&app_handle,"Setting up Seventh Heaven...".to_string(), || -> io::Result<()> {
+    with_status(&app_handle,"Setting up 7th Heaven...".to_string(), || -> io::Result<()> {
         let args = vec!["/VERYSILENT", "/SUPPRESSMSGBOXES", "/DIR=C:\\7th-Heaven"];
-        match wine_manager.launch_exe("/app/extra/7thHeaven-v3.4.0.70_Release.exe", &args) {
-            Ok(_) => Ok(info!("Launched 7th Heaven installer!")),
+        match wine_manager.launch_exe("/app/extra/7thHeaven.exe", &vec![], &args) {
+            Ok(_) => {
+                let _ = configure_7th();
+                Ok(info!("Installed 7th Heaven!"))
+            }
             Err(e) => Err(Error::new(ErrorKind::NotFound, e))
         }
     }).unwrap();
 
     with_status(&app_handle,"Setting up FFNX...".to_string(), || -> io::Result<()> {
-        todo!("Fetch FFNX and install it?");
-        // TODO - error handling
+        let zip_file = PathBuf::from("/app/extra/FFNx.zip");
+        let target_dir = PathBuf::from("/var/data/wine/drive_c/FF7");
+        match zip_extensions::zip_extract(&zip_file, &target_dir) {
+            Ok(_) => fs::copy("/app/etc/FFNx.toml", "/var/data/wine/drive_c/FF7/FFNx.toml")
+                    .map(|_| ())
+                    .map_err(Into::into),
+            Err(err) => Err(err.into())
+        }
     }).unwrap();
 
+    with_status(&app_handle,"Launching 7th Heaven...".to_string(), || -> io::Result<()> {
+        let vars = vec![("WINEDLLOVERRIDES", "dinput=n,b")];
+        match wine_manager.launch_exe("/var/data/wine/drive_c/7th-Heaven/7th Heaven.exe", &vars, &vec![]) {
+            Ok(_) => Ok(info!("Launched 7th Heaven!")),
+            Err(e) => Err(Error::new(ErrorKind::NotFound, e))
+        }
+    }).unwrap();
 
     with_status(&app_handle,"Patching FF7 for Seventh Heaven...".to_string(), || -> io::Result<()> {
         todo!("Apply FF7 Steam patch");
