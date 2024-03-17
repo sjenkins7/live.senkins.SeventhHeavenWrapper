@@ -154,14 +154,14 @@ modules:
     sources:
       - type: extra-data
         filename: 7thHeaven.exe
-        url: https://github.com/tsunamods-codes/7th-Heaven/releases/download/canary/7thHeaven-v3.4.0.86_Release.exe
-        sha256: 1f28237f34d99611fbd48def6615209adde22e98749ece26888a3cf9f00a6814
-        size: 21965692
+        url: https://github.com/tsunamods-codes/7th-Heaven/releases/download/3.5.0/7thHeaven-v3.5.0.0_Release.exe
+        sha256: 2db3196930eac745823aefe7dc5fb2e47e12538d250c131928c65c794b684c9e
+        size: 21965035
       - type: extra-data
         filename: FFNx.zip
-        url: https://github.com/julianxhokaxhiu/FFNx/releases/download/canary/FFNx-FF7_1998-v1.18.1.33.zip
-        sha256: 388b98dd691fe3af12e094380e1365ee1013792e5bad05594cc8a5cce4a31c89
-        size: 44859182
+        url: https://github.com/julianxhokaxhiu/FFNx/releases/download/1.18.1/FFNx-FF7_1998-v1.18.1.0.zip
+        sha256: 5d6ea6e44485905b41ae3b3882feb75f735828c1be6d52359989578b0aefa6e9
+        size: 44594945
       - type: file
         path: include/settings.xml
       - type: file
