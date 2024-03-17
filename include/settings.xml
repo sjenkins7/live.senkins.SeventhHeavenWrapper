@@ -32,8 +32,8 @@
   </Subscriptions>
   <LibraryLocation>C:\FF7\mods</LibraryLocation>
   <FF7Exe>C:\FF7\ff7.exe</FF7Exe>
-  <FFNxUpdateChannel>Canary</FFNxUpdateChannel>
-  <AppUpdateChannel>Canary</AppUpdateChannel>
+  <FFNxUpdateChannel>Stable</FFNxUpdateChannel>
+  <AppUpdateChannel>Stable</AppUpdateChannel>
   <LastUpdateCheck>0001-01-01T00:00:00</LastUpdateCheck>
   <Options>
     <GeneralOptions>AutoSortMods</GeneralOptions>
