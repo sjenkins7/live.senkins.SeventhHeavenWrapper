@@ -2257,14 +2257,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/log/log-0.4.20.crate",
-        "sha256": "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f",
-        "dest": "cargo/vendor/log-0.4.20"
+        "url": "https://static.crates.io/crates/log/log-0.4.21.crate",
+        "sha256": "90ed8c1e510134f979dbc4f070f87d4313098b704861a105fe34231c70a3901c",
+        "dest": "cargo/vendor/log-0.4.21"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f\", \"files\": {}}",
-        "dest": "cargo/vendor/log-0.4.20",
+        "contents": "{\"package\": \"90ed8c1e510134f979dbc4f070f87d4313098b704861a105fe34231c70a3901c\", \"files\": {}}",
+        "dest": "cargo/vendor/log-0.4.21",
         "dest-filename": ".cargo-checksum.json"
     },
     {
