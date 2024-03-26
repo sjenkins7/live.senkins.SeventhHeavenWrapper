@@ -4246,14 +4246,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/tauri/tauri-1.6.0.crate",
-        "sha256": "0da520ff07c0745199204f7a7a62a8c6ee1666313b792b051ca170eca04649aa",
-        "dest": "cargo/vendor/tauri-1.6.0"
+        "url": "https://static.crates.io/crates/tauri/tauri-1.6.1.crate",
+        "sha256": "f078117725e36d55d29fafcbb4b1e909073807ca328ae8deb8c0b3843aac0fed",
+        "dest": "cargo/vendor/tauri-1.6.1"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"0da520ff07c0745199204f7a7a62a8c6ee1666313b792b051ca170eca04649aa\", \"files\": {}}",
-        "dest": "cargo/vendor/tauri-1.6.0",
+        "contents": "{\"package\": \"f078117725e36d55d29fafcbb4b1e909073807ca328ae8deb8c0b3843aac0fed\", \"files\": {}}",
+        "dest": "cargo/vendor/tauri-1.6.1",
         "dest-filename": ".cargo-checksum.json"
     },
     {
@@ -4329,14 +4329,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/tauri-runtime-wry/tauri-runtime-wry-0.14.4.crate",
-        "sha256": "a561ae38c6b27510c77a3ab4cf65bebe18fba51ca4569e023fb9e194ff4995fb",
-        "dest": "cargo/vendor/tauri-runtime-wry-0.14.4"
+        "url": "https://static.crates.io/crates/tauri-runtime-wry/tauri-runtime-wry-0.14.5.crate",
+        "sha256": "067c56fc153b3caf406d7cd6de4486c80d1d66c0f414f39e94cb2f5543f6445f",
+        "dest": "cargo/vendor/tauri-runtime-wry-0.14.5"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"a561ae38c6b27510c77a3ab4cf65bebe18fba51ca4569e023fb9e194ff4995fb\", \"files\": {}}",
-        "dest": "cargo/vendor/tauri-runtime-wry-0.14.4",
+        "contents": "{\"package\": \"067c56fc153b3caf406d7cd6de4486c80d1d66c0f414f39e94cb2f5543f6445f\", \"files\": {}}",
+        "dest": "cargo/vendor/tauri-runtime-wry-0.14.5",
         "dest-filename": ".cargo-checksum.json"
     },
     {
