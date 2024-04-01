@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [main]
+    branches: [develop]
   pull_request:
 name: CI
 jobs:
@@ -12,6 +12,8 @@ jobs:
       options: --privileged
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: recursive
     - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
       with:
         bundle: live.senkins.SeventhHeavenWrapper.flatpak
