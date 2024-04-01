@@ -14,10 +14,9 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: recursive
-    - name: Setup python
-      uses: actions/setup-python@v5.1.0
     - name: Setup Flatpak tooling
       run: |
+        pip install pipx
         pipx install flatpak-builder-tools/node
     - name: regenerate sources
       run: |
@@ -28,7 +27,7 @@ jobs:
       with:
         files: |
            *-sources.json
-    - name: Run the action # You would run your tests before this using the output to set state/desc
+    - name: Run the action
       uses: Sibz/github-status-action@v1
       with: 
         authToken: ${{secrets.GITHUB_TOKEN}}
