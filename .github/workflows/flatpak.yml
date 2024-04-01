@@ -14,7 +14,25 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: recursive
-    - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
+    - name: regenerate sources
+      run: |
+        ./regenerate-sources.sh
+    - name: Verify Changed files
+      uses: tj-actions/verify-changed-files@v19
+      id: verify-changed-files
+      with:
+        files: |
+           *-sources.json
+    - name: Run the action # You would run your tests before this using the output to set state/desc
+      uses: Sibz/github-status-action@v1
+      with: 
+        authToken: ${{secrets.GITHUB_TOKEN}}
+        context: 'Flatpak Sources up-to-date'
+        description: 'Verifies that Flatpak Sources are kept in sync'
+        state: ${{ steps.verify-changed-files.outputs.files_changed && 'failure' || 'success' }}
+        sha: ${{github.event.pull_request.head.sha || github.sha}}
+    - name: Build Flatpak
+      uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
       with:
         bundle: live.senkins.SeventhHeavenWrapper.flatpak
         manifest-path: live.senkins.SeventhHeavenWrapper.yml
