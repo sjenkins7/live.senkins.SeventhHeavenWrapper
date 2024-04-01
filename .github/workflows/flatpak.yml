@@ -11,6 +11,9 @@ jobs:
       image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-44
       options: --privileged
     steps:
+    - name: Prepare container
+      run: |
+        dnf install git-all
     - uses: actions/checkout@v4
       with:
         submodules: recursive
