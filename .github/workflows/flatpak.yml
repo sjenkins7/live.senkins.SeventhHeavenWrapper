@@ -16,7 +16,7 @@ jobs:
         submodules: recursive
     - name: Setup Flatpak tooling
       run: |
-        pip install pipx
+        pip install pipx toml
         pipx install flatpak-builder-tools/node
     - name: regenerate sources
       run: |
