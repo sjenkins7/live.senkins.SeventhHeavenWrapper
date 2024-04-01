@@ -18,7 +18,7 @@ jobs:
       run: |
         pip install pipx toml
         pipx install flatpak-builder-tools/node
-        pipx ensurepath
+        export PATH="$HOME/.local/bin:$PATH"
     - name: regenerate sources
       run: |
         ./regenerate-sources.sh
