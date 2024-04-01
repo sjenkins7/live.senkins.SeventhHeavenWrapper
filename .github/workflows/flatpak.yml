@@ -18,9 +18,9 @@ jobs:
       run: |
         pip install pipx toml
         pipx install flatpak-builder-tools/node
-        export PATH="$HOME/.local/bin:$PATH"
     - name: regenerate sources
       run: |
+        export PATH="$HOME/.local/bin:$PATH"
         ./regenerate-sources.sh
     - name: Verify Changed files
       uses: tj-actions/verify-changed-files@v19
