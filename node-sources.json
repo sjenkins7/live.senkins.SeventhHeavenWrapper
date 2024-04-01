@@ -713,16 +713,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@types/react/-/react-18.2.64.tgz#3700fbb6b2fa60a6868ec1323ae4cbd446a2197d",
-        "sha512": "32598fbc78238f6a77bd96b16d080551016f0fc4226700027c6a84743496a2ee722125b10d0e3fef89c2030b14897ed414b299cf705b5523e3f98c5ea061827e",
-        "dest-filename": "@types-react-18.2.64.tgz",
-        "dest": "flatpak-node/yarn-mirror"
-    },
-    {
-        "type": "file",
-        "url": "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.8.tgz#ce5ace04cfeabe7ef87c0091e50752e36707deff",
-        "sha512": "5992e2c12861c0b466795eb31fe1a46ce153e99e95925088b6b0e2a31527bfebb82e5fbcbca785c92a05c8aff472d711a4e9b00227042df9b2b35b0373f470f8",
-        "dest-filename": "@types-scheduler-0.16.8.tgz",
+        "url": "https://registry.yarnpkg.com/@types/react/-/react-18.2.73.tgz#0579548ad122660d99e00499d22e33b81e73ed94",
+        "sha512": "5dc19da1dd098eff381ce0bb379ce2637c7ea8bd007e6b9bbca399f61263276c9de4413e2988d685d3a3b77f3b7bd1cf85e1e4760805f5ab5389f311b7201a44",
+        "dest-filename": "@types-react-18.2.73.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
