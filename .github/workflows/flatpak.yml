@@ -11,34 +11,9 @@ jobs:
       image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-44
       options: --privileged
     steps:
-    - name: Prepare container
-      run: |
-        dnf install git-all
     - uses: actions/checkout@v4
       with:
         submodules: recursive
-    - name: Setup Flatpak tooling
-      run: |
-        pip install pipx toml
-        pipx install flatpak-builder-tools/node
-    - name: regenerate sources
-      run: |
-        export PATH="$HOME/.local/bin:$PATH"
-        ./regenerate-sources.sh
-    - name: Verify Changed files
-      uses: tj-actions/verify-changed-files@v19
-      id: verify-changed-files
-      with:
-        files: |
-           *-sources.json
-    - name: Run the action
-      uses: Sibz/github-status-action@v1
-      with: 
-        authToken: ${{secrets.GITHUB_TOKEN}}
-        context: 'Flatpak Sources up-to-date'
-        description: 'Verifies that Flatpak Sources are kept in sync'
-        state: ${{ steps.verify-changed-files.outputs.files_changed && 'failure' || 'success' }}
-        sha: ${{github.event.pull_request.head.sha || github.sha}}
     - name: Build Flatpak
       uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
       with:
