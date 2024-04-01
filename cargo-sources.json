@@ -3674,14 +3674,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/serde_json/serde_json-1.0.114.crate",
-        "sha256": "c5f09b1bd632ef549eaa9f60a1f8de742bdbc698e6cee2095fc84dde5f549ae0",
-        "dest": "cargo/vendor/serde_json-1.0.114"
+        "url": "https://static.crates.io/crates/serde_json/serde_json-1.0.115.crate",
+        "sha256": "12dc5c46daa8e9fdf4f5e71b6cf9a53f2487da0e86e55808e2d35539666497dd",
+        "dest": "cargo/vendor/serde_json-1.0.115"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"c5f09b1bd632ef549eaa9f60a1f8de742bdbc698e6cee2095fc84dde5f549ae0\", \"files\": {}}",
-        "dest": "cargo/vendor/serde_json-1.0.114",
+        "contents": "{\"package\": \"12dc5c46daa8e9fdf4f5e71b6cf9a53f2487da0e86e55808e2d35539666497dd\", \"files\": {}}",
+        "dest": "cargo/vendor/serde_json-1.0.115",
         "dest-filename": ".cargo-checksum.json"
     },
     {
