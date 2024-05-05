@@ -566,9 +566,9 @@
     },
     {
         "type": "file",
-        "url": "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.5.10.tgz#2abde4c6d5c797ab49cf47610830a301de4c1e0a",
-        "sha512": "3def01b8f25025ddc57d19e6e87d2e94a206a0c1104be56ad3547a339682ac507f71c47fb214fed245cb8e8b860b58052e6f61a294c537e0cc3f4a5fc115b33f",
-        "dest-filename": "@tailwindcss-typography-0.5.10.tgz",
+        "url": "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.5.13.tgz#cd788a4fa4d0ca2506e242d512f377b22c1f7932",
+        "sha512": "00319c27c757db57555472304d1833adcba763a618f6e4a50071c654abe403ebcb739a8bc04b33bcab6ce34971ef3d2a738725a63725c0b78ae6b5425763ffbb",
+        "dest-filename": "@tailwindcss-typography-0.5.13.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
