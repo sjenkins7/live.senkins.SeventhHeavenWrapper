@@ -17,3 +17,8 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+
+groups:
+  tauri:
+    patterns:
+    - "*tauri*"
