@@ -9,16 +9,20 @@ updates:
     directory: "/tauri-app/src-tauri/"
     schedule:
       interval: "daily"
+    groups:
+      tauri:
+        patterns:
+        - "*tauri*"
   - package-ecosystem: "npm"
     directory: "/tauri-app/"
     schedule:
       interval: "daily"
+    groups:
+      tauri:
+        patterns:
+        - "*tauri*"
   - package-ecosystem: "gitsubmodule"
     directory: "/"
     schedule:
       interval: "daily"
 
-groups:
-  tauri:
-    patterns:
-    - "*tauri*"
