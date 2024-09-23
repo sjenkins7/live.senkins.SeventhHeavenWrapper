@@ -41,6 +41,13 @@
     },
     {
         "type": "file",
+        "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001663.tgz",
+        "sha512": "a3d0b75f6ec62ca6cb793619e8704e2d4d6db0070166c2e2b36f30ad5cdd7528424b5e91ba38c7a7d1831ca66aac1de6784d188e16b0bcc16c19bfe282a88fcc",
+        "dest-filename": "caniuse-lite-1.0.30001663.tgz",
+        "dest": "flatpak-node/yarn-mirror"
+    },
+    {
+        "type": "file",
         "url": "https://registry.yarnpkg.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30",
         "sha512": "52b700041fb86d4ac5001c1b96e4c8044ad7c2f6ec53f57b4d959f99b8097db930881bb3892f60c5d383532ba279c7dd190f398e094c5ba8ee4b7fb3e53b0a2f",
         "dest-filename": "@alloc-quick-lru-5.2.0.tgz",
@@ -940,13 +947,6 @@
         "url": "https://registry.yarnpkg.com/camelcase-css/-/camelcase-css-2.0.1.tgz#ee978f6947914cc30c6b44741b6ed1df7f043fd5",
         "sha512": "40e4af7af86c9628e0630471e91bfbcca74c17c95b466c7eb901b1dbebc373e288fde067b32f648ade5a8f6dc0806bb7a5ae2df408306e75d6a92fa2398fb668",
         "dest-filename": "camelcase-css-2.0.1.tgz",
-        "dest": "flatpak-node/yarn-mirror"
-    },
-    {
-        "type": "file",
-        "url": "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001600.tgz#93a3ee17a35aa6a9f0c6ef1b2ab49507d1ab9079",
-        "sha512": "fb64bdff6245858998683a59be8d252a47efb8a22096bc7af0cc0e06a3061e142c3642e3079c6d73f4c6a043ecf8cc634b237fef6a9eaf683dee7cd1eb8d6639",
-        "dest-filename": "caniuse-lite-1.0.30001600.tgz",
         "dest": "flatpak-node/yarn-mirror"
     },
     {
